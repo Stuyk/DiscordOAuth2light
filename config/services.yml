@@ -1,0 +1,16 @@
+services:
+    phpbbstudio.dol.listener:
+        class: phpbbstudio\dol\event\main_listener
+        arguments:
+            - '@language'
+        tags:
+            - { name: event.listener }
+
+    auth.provider.oauth.service.discord:
+        class: phpbbstudio\dol\auth\provider\oauth\service\discord
+        arguments:
+            - '@config'
+            - '@language'
+            - '@request'
+        tags:
+            - { name: auth.provider.oauth.service }
