@@ -46,6 +46,6 @@ class install_config extends \phpbb\db\migration\migration
 		return [
 			['config.add', ['auth_oauth_discord_key', '']],
 			['config.add', ['auth_oauth_discord_secret', '']],
-		);
+		];
 	}
 }
