@@ -11,8 +11,7 @@ a[href$="discord"] {
 	font-size: 20px;
 	font-weight: bold;
 	line-height: 1.3;
-	background: #2c2f33;
-	background-image: url("./svg/discord-white.svg");
+	background: #2c2f33 url("./svg/discord-white.svg");
 	border-color: #23272a;
 	border-radius: 4px;
 	color: transparent;
@@ -20,8 +19,7 @@ a[href$="discord"] {
 }
 
 a[href$="discord"]:hover {
-	background: #23272a;
-	background-image: url("./svg/discord-purple.svg");
+	background: #23272a url("./svg/discord-purple.svg");
 	border-color: #7289da;
 	color: transparent;
 }
