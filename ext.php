@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * DOL -Discord Oauth2 light. An extension for the phpBB Forum Software package.
+ * DOL - Discord Oauth2 light. An extension for the phpBB Forum Software package.
  *
  * @copyright (c) 2019, phpBB Studio, https://www.phpbbstudio.com
  * @license GNU General Public License, version 2 (GPL-2.0)
@@ -11,7 +11,7 @@
 namespace phpbbstudio\dol;
 
 /**
- * DOL -Discord Oauth2 light Extension base
+ * DOL - Discord Oauth2 light Extension base
  */
 class ext extends \phpbb\extension\base
 {

@@ -2,7 +2,7 @@
 
 ## Installation
 
-Copy the extension to phpBB/ext/phpbbstudio/nore
+Copy the extension to phpBB/ext/phpbbstudio/dol
 
 Go to "ACP" > "Customise" > "Extensions" and enable the "phpBB Studio - Discord Oauth2 light" extension.
 

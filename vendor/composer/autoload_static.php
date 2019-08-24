@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1b24ac924f94992fb2a1beb0334d53af
+class ComposerStaticInitc1fbca6d5758aa70b7c7c565395a6822
 {
     public static $files = array (
         'a8392c0eee216a4a0c46aa2851d06d6f' => __DIR__ . '/../..' . '/OAuth/OAuth2/Service/discord.php',

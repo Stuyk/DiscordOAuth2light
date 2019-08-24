@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * DOL -Discord Oauth2 light. An extension for the phpBB Forum Software package.
+ * DOL - Discord Oauth2 light. An extension for the phpBB Forum Software package.
  *
  * @copyright (c) 2019, phpBB Studio, https://www.phpbbstudio.com
  * @license GNU General Public License, version 2 (GPL-2.0)
@@ -10,19 +10,19 @@
 
 namespace OAuth\OAuth2\Service;
 
-use	OAuth\OAuth2\Token\StdOAuth2Token;
-use	OAuth\Common\Http\Exception\TokenResponseException;
-use	OAuth\Common\Http\Uri\Uri;
-use	OAuth\Common\Consumer\CredentialsInterface;
-use	OAuth\Common\Http\Client\ClientInterface;
-use	OAuth\Common\Storage\TokenStorageInterface;
-use	OAuth\Common\Http\Uri\UriInterface;
+use OAuth\OAuth2\Token\StdOAuth2Token;
+use OAuth\Common\Http\Exception\TokenResponseException;
+use OAuth\Common\Http\Uri\Uri;
+use OAuth\Common\Consumer\CredentialsInterface;
+use OAuth\Common\Http\Client\ClientInterface;
+use OAuth\Common\Storage\TokenStorageInterface;
+use OAuth\Common\Http\Uri\UriInterface;
 
 class discord extends AbstractService
 {
-	public function	__construct(
+	public function __construct(
 		CredentialsInterface $credentials,
-		ClientInterface	$httpClient,
+		ClientInterface $httpClient,
 		TokenStorageInterface $storage,
 		$scopes = [],
 		UriInterface $baseApiUri = null
@@ -32,7 +32,7 @@ class discord extends AbstractService
 
 		if (null === $baseApiUri)
 		{
-			$this->baseApiUri = new	Uri('https://discordapp.com/api/');
+			$this->baseApiUri = new Uri('https://discordapp.com/api/');
 		}
 	}
 
@@ -112,16 +112,30 @@ class discord extends AbstractService
 			$additionalParameters,
 			[
 				'client_id'			=> $this->credentials->getConsumerId(),
-				'redirect_uri'		=> $this->credentials->getCallbackUrl(),
+				/* https://discordapp.com/developers/docs/topics/oauth2#authorization-code-grant */
+				'grant_type'		=> 'authorization_code',
 				'response_type'		=> 'code',
-				'scope'				=> 'identify',
-				/**
-				 * If the user has previously authorized our application
-				 * then skip the authorization screen and redirect it back to us.
-				 */
-				'prompt'			=> 'none'
+				'redirect_uri'		=> $this->credentials->getCallbackUrl(),
+				'scope'				=> 'identify'
 			]
 		);
+
+		/**
+		 * If the user has previously authorized our application
+		 * then skip the authorization screen and redirect it back to us.
+		 */
+		$parameters['prompt'] = 'none';
+
+		/**
+		 * Prevent CSRF and Clickjacking.
+		 * That's not explicitely requested by Discord.
+		 *
+		 * https://discordapp.com/developers/docs/topics/oauth2#state-and-security
+		 */
+		$parameters['state'] = $this->generateAuthorizationState();
+
+		/* Store the generated state */
+		$this->storeAuthorizationState($parameters['state']);
 
 		/* Build the url */
 		$url = clone $this->getAuthorizationEndpoint();
