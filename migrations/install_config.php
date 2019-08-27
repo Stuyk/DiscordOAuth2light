@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * DOL - Discord Oauth2 light. An extension for the phpBB Forum Software package.
+ * DOL - Discord OAuth2 light. An extension for the phpBB Forum Software package.
  *
  * @copyright (c) 2019, phpBB Studio, https://www.phpbbstudio.com
  * @license GNU General Public License, version 2 (GPL-2.0)
@@ -13,14 +13,14 @@ namespace phpbbstudio\dol\migrations;
 class install_config extends \phpbb\db\migration\migration
 {
 	/**
-	 * Check if the migration is effectively installed
+	 * Check if the migration is effectively installed.
 	 *
 	 * @return bool			True if this migration is installed or false otherwise.
 	 * @access public
 	 */
 	public function effectively_installed()
 	{
-		return $this->config->offsetExists('auth_oauth_discord_key');
+		return $this->config->offsetExists('auth_oauth_studio_discord_key');
 	}
 
 	/**
@@ -32,7 +32,7 @@ class install_config extends \phpbb\db\migration\migration
 	 */
 	public static function depends_on()
 	{
-		return ['\phpbb\db\migration\data\v32x\v328rc1'];
+		return ['\phpbb\db\migration\data\v32x\v327'];
 	}
 
 	/**
@@ -44,8 +44,8 @@ class install_config extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return [
-			['config.add', ['auth_oauth_discord_key', '']],
-			['config.add', ['auth_oauth_discord_secret', '']],
+			['config.add', ['auth_oauth_studio_discord_key', '']],
+			['config.add', ['auth_oauth_studio_discord_secret', '']],
 		];
 	}
 }

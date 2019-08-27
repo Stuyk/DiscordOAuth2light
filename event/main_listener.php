@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * DOL - Discord Oauth2 light. An extension for the phpBB Forum Software package.
+ * DOL - Discord OAuth2 light. An extension for the phpBB Forum Software package.
  *
  * @copyright (c) 2019, phpBB Studio, https://www.phpbbstudio.com
  * @license GNU General Public License, version 2 (GPL-2.0)
@@ -16,7 +16,7 @@ namespace phpbbstudio\dol\event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * DOL - Discord Oauth2 light Event listener.
+ * DOL - Discord OAuth2 light Event listener.
  */
 class main_listener implements EventSubscriberInterface
 {
@@ -26,7 +26,7 @@ class main_listener implements EventSubscriberInterface
 	/**
 	 * Constructor
 	 *
-	 * @param \phpbb\language\language	$language	Language object
+	 * @param  \phpbb\language\language		$language		Language object
 	 * @return void
 	 * @access public
 	 */
@@ -36,11 +36,11 @@ class main_listener implements EventSubscriberInterface
 	}
 
 	/**
-	 * Assign functions defined in this class to event listeners in the core
+	 * Assign functions defined in this class to event listeners in the core.
 	 *
 	 * @return array
-	 * @static
 	 * @access public
+	 * @static
 	 */
 	public static function getSubscribedEvents()
 	{

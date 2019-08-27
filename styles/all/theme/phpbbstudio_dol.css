@@ -1,12 +1,12 @@
 /**
  *
- * DOL - Discord Oauth2 light. An extension for the phpBB Forum Software package.
+ * DOL - Discord OAuth2 light. An extension for the phpBB Forum Software package.
  *
  * @copyright (c) 2019, phpBB Studio, https://www.phpbbstudio.com
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  */
-a[href$="discord"] {
+a[href$="studio_discord"] {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 20px;
 	font-weight: bold;
@@ -18,7 +18,7 @@ a[href$="discord"] {
 	padding: 4px 8px;
 }
 
-a[href$="discord"]:hover {
+a[href$="studio_discord"]:hover {
 	background: #23272a url("./svg/discord-purple.svg");
 	border-color: #7289da;
 	color: transparent;

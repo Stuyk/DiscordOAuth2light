@@ -1,5 +1,5 @@
-# phpBB Studio - Discord Oauth2 light:
+# phpBB Studio - Discord OAuth2 light:
 
-Oauth2 login for phpBB - light version
+OAuth2 login for phpBB - light version
 
-For a Full version ask privately The Studio visiting our site.
+For a Full version ask The Studio privately, visiting our site.

@@ -1,8 +1,8 @@
 /**
- * # Discord Oauth2 light extension © Copyright phpBB Studio 2019
+ * Discord OAuth2 light extension © Copyright phpBB Studio 2019
  * https://www.phpbbstudio.com
  *
- * Discord Oauth2 is free extension for the phpBB Forum Software Package.
+ * Discord OAuth2 is a free extension for the phpBB Forum Software Package.
  * You can redistribute it and/or modify it under the terms of
  * the GNU General Public License, version 2 (GPL-2.0) as
  * published by the Free Software Foundation.

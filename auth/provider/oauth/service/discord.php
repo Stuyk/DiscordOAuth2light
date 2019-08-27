@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * DOL - Discord Oauth2 light. An extension for the phpBB Forum Software package.
+ * DOL - Discord OAuth2 light. An extension for the phpBB Forum Software package.
  *
  * @copyright (c) 2019, phpBB Studio, https://www.phpbbstudio.com
  * @license GNU General Public License, version 2 (GPL-2.0)
@@ -15,7 +15,7 @@ use OAuth\Common\Http\Exception\TokenResponseException;
 use OAuth\Common\Exception\Exception as AccountResponseException;
 
 /**
-* phpBB Studio - GitHub OAuth2 light service
+* phpBB Studio - Discord OAuth2 light service
 */
 class discord extends \phpbb\auth\provider\oauth\service\base
 {
@@ -53,8 +53,8 @@ class discord extends \phpbb\auth\provider\oauth\service\base
 	public function get_service_credentials()
 	{
 		return [
-			'key'		=> $this->config['auth_oauth_discord_key'],
-			'secret'	=> $this->config['auth_oauth_discord_secret'],
+			'key'		=> $this->config['auth_oauth_studio_discord_key'],
+			'secret'	=> $this->config['auth_oauth_studio_discord_secret'],
 		];
 	}
 
@@ -63,7 +63,7 @@ class discord extends \phpbb\auth\provider\oauth\service\base
 	 */
 	public function perform_auth_login()
 	{
-		if (!($this->service_provider instanceof \OAuth\OAuth2\Service\discord))
+		if (!($this->service_provider instanceof \OAuth\OAuth2\Service\Studio_discord))
 		{
 			throw new exception('AUTH_PROVIDER_OAUTH_ERROR_INVALID_SERVICE_TYPE');
 		}
@@ -91,7 +91,8 @@ class discord extends \phpbb\auth\provider\oauth\service\base
 		}
 
 		/**
-		 * https://discordapp.com/developers/docs/topics/oauth2
+		 * https://discordapp.com/developers/docs/resources/user#user-object
+		 * snowflake	the user's id
 		 */
 		return $result['id'];
 	}
@@ -101,7 +102,7 @@ class discord extends \phpbb\auth\provider\oauth\service\base
 	 */
 	public function perform_token_auth()
 	{
-		if (!($this->service_provider instanceof \OAuth\OAuth2\Service\discord))
+		if (!($this->service_provider instanceof \OAuth\OAuth2\Service\Studio_discord))
 		{
 			throw new exception('AUTH_PROVIDER_OAUTH_ERROR_INVALID_SERVICE_TYPE');
 		}
@@ -119,7 +120,8 @@ class discord extends \phpbb\auth\provider\oauth\service\base
 		}
 
 		/**
-		 * https://discordapp.com/developers/docs/topics/oauth2
+		 * https://discordapp.com/developers/docs/resources/user#user-object
+		 * snowflake	the user's id
 		 */
 		return $result['id'];
 	}
