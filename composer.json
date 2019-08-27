@@ -22,7 +22,7 @@
 	"extra": {
 		"display-name": "phpBB Studio - Discord Oauth2 light",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.2.8-rc1,<4.0.0@dev"
+			"phpbb/phpbb": ">=3.2.7,<4.0.0@dev"
 		}
 	}
 }
